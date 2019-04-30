@@ -1,0 +1,4 @@
+bin/game
+build/*.o
+*.swp
+src/*.swp
