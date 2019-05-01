@@ -152,10 +152,16 @@ void standart(int jk)
             A[i][j] = j + 1;
     }
     B = (int*)malloc(jk * sizeof(int));
-    B[0] = 1;
-    B[1] = 3;
-    B[2] = 5;
-    B[3] = 7;
+    if (jk == 3) {
+        B[0] = rand() % 3 + 1;
+        B[1] = rand() % 3 + 4;
+        B[2] = rand() % 4 + 7;
+    } else {
+        B[0] = 1;
+        B[1] = 3;
+        B[2] = 5;
+        B[3] = 7;
+    }
     games(A, B, jk);
     for (i = 0; i < jk; i++)
         free(A[i]);
