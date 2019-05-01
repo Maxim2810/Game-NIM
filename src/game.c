@@ -17,6 +17,76 @@ void BubbleSort(int* A, int n)
     return;
 }
 
+void PlayerTurn(int** A, int* B, int jk)
+{
+    int m, n;
+    while (1) {
+        pole(A, B, 1, jk);
+        if (jk == 3)
+            printw("Viberite kychky 1 or 2 or 3:\n");
+        else
+            printw("Viberite kychky 1 or 2 or 3 or 4:\n");
+        scanw("%d", &m);
+        if (m > jk - 1 && m < 0)
+            continue;
+        printw("Viberite spichki 1-10:\n");
+        scanw("%d", &n);
+        if (n > 2000000000)
+            continue;
+        if (n < 1)
+            continue;
+        if (m == 1) {
+            if (B[0] == 0)
+                continue;
+            if (B[0] >= n) {
+                B[0] -= n;
+                return;
+            }
+            if (B[0] < n) {
+                B[0] = 0;
+                return;
+            }
+        }
+        if (m == 2) {
+            if (B[1] == 0)
+                continue;
+            if (B[1] >= n) {
+                B[1] -= n;
+                return;
+            }
+            if (B[1] < n) {
+                B[1] = 0;
+                return;
+            }
+        }
+        if (m == 3) {
+            if (B[2] == 0)
+                continue;
+            if (B[2] >= n) {
+                B[2] -= n;
+                return;
+            }
+            if (B[2] < n) {
+                B[2] = 0;
+                return;
+            }
+        }
+        if (m == 4) {
+            if (B[3] == 0)
+                continue;
+            if (B[3] >= n) {
+                B[3] -= n;
+                return;
+            }
+            if (B[3] < n) {
+                B[3] = 0;
+                return;
+            }
+        }
+    }
+    return;
+}
+
 void ComputerTurn(int** A, int* B, int jk)
 {
     pole(A, B, 0, jk);
@@ -60,6 +130,7 @@ void games(int** A, int* B, int jk)
     while (1) {
         ComputerTurn(A, B, jk);
         clear();
+        PlayerTurn(A, B, jk);
     }
     return;
 }
