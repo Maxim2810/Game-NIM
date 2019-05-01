@@ -127,10 +127,17 @@ void ComputerTurn(int** A, int* B, int jk)
 void games(int** A, int* B, int jk)
 {
     clear();
+    int win = 2;
     while (1) {
         ComputerTurn(A, B, jk);
+        win = winner(B, 0, jk);
+        if (win == 0)
+            break;
         clear();
         PlayerTurn(A, B, jk);
+        win = winner(B, 1, jk);
+        if (win == 1)
+            break;
     }
     return;
 }
