@@ -56,6 +56,13 @@ void difficulty()
 int winner(int* B, int w, int jk)
 {
     if (w) {
+        if (jk == 3) {
+            if (B[0] == 0 && B[1] == 0 && B[2] == 0) {
+                printw("You Won. YHuuuu!!!\n");
+                getch();
+                return 1;
+            }
+        }
         if (jk == 4) {
             if (B[0] == 0 && B[1] == 0 && B[2] == 0 && B[3] == 0) {
                 printw("You Won. YHuuuu!!!\n");
@@ -65,6 +72,13 @@ int winner(int* B, int w, int jk)
         }
     }
     if (w == 0) {
+        if (jk == 3) {
+            if (B[0] == 0 && B[1] == 0 && B[2] == 0) {
+                printw("You lose");
+                getch();
+                return 0;
+            }
+        }
         if (jk == 4) {
             if (B[0] == 0 && B[1] == 0 && B[2] == 0 && B[3] == 0) {
                 printw("You lose");
