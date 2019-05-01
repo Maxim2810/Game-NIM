@@ -91,6 +91,32 @@ void ComputerTurn(int** A, int* B, int jk)
 {
     pole(A, B, 0, jk);
     int max1, i, min, med, med2, raz = 0, C[jk];
+    if (jk == 3) {
+        for (i = 0; i < jk; i++)
+            C[i] = B[i];
+        BubbleSort(C, jk);
+        min = C[0];
+        med = C[1];
+        max1 = C[2];
+        if (med == max1 && min == 0)
+            med = max1 - 1;
+        if (med == max1)
+            med = min;
+        raz = max1 + min - med;
+        if (B[0] == max1) {
+            B[0] -= raz;
+            return;
+        }
+        if (B[1] == max1) {
+            B[1] -= raz;
+            return;
+        }
+        if (B[2] == max1) {
+            B[2] -= raz;
+            return;
+        }
+        return;
+    }
     if (jk == 4) {
         for (i = 0; i < jk; i++)
             C[i] = B[i];

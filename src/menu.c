@@ -39,6 +39,7 @@ void difficulty()
         dif = getch();
         switch (dif) {
         case '1':
+            standart(3);
             clear();
             return;
         case '2':
