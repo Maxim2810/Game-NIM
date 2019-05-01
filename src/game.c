@@ -2,6 +2,21 @@
 #include "../library/lib.h"
 #include "menu.h"
 
+void BubbleSort(int* A, int n)
+{
+    int i, j, k;
+    for (i = 0; i < n - 1; i++) {
+        for (j = n - 1; j > i; j--) {
+            if (A[j] < A[j - 1]) {
+                k = A[j];
+                A[j] = A[j - 1];
+                A[j - 1] = k;
+            }
+        }
+    }
+    return;
+}
+
 void games(int** A, int* B, int jk)
 {
     clear();
