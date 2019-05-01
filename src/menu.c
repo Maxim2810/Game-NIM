@@ -1,4 +1,5 @@
 #include "../library/lib.h"
+#include "game.h"
 
 void difficulty()
 {
@@ -12,6 +13,7 @@ void difficulty()
             clear();
             return;
         case '2':
+            standart(3);
             clear();
             return;
         case '3':
