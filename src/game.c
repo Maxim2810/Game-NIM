@@ -91,6 +91,32 @@ void ComputerTurn(int** A, int* B, int jk)
 {
     pole(A, B, 0, jk);
     int max1, i, min, med, med2, raz = 0, C[jk];
+    if (jk == 3) {
+        for (i = 0; i < jk; i++)
+            C[i] = B[i];
+        BubbleSort(C, jk);
+        min = C[0];
+        med = C[1];
+        max1 = C[2];
+        if (med == max1 && min == 0)
+            med = max1 - 1;
+        if (med == max1)
+            med = min;
+        raz = max1 + min - med;
+        if (B[0] == max1) {
+            B[0] -= raz;
+            return;
+        }
+        if (B[1] == max1) {
+            B[1] -= raz;
+            return;
+        }
+        if (B[2] == max1) {
+            B[2] -= raz;
+            return;
+        }
+        return;
+    }
     if (jk == 4) {
         for (i = 0; i < jk; i++)
             C[i] = B[i];
@@ -152,10 +178,16 @@ void standart(int jk)
             A[i][j] = j + 1;
     }
     B = (int*)malloc(jk * sizeof(int));
-    B[0] = 1;
-    B[1] = 3;
-    B[2] = 5;
-    B[3] = 7;
+    if (jk == 3) {
+        B[0] = rand() % 3 + 1;
+        B[1] = rand() % 3 + 4;
+        B[2] = rand() % 4 + 7;
+    } else {
+        B[0] = 1;
+        B[1] = 3;
+        B[2] = 5;
+        B[3] = 7;
+    }
     games(A, B, jk);
     for (i = 0; i < jk; i++)
         free(A[i]);
