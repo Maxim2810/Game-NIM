@@ -17,12 +17,49 @@ void BubbleSort(int* A, int n)
     return;
 }
 
+void ComputerTurn(int** A, int* B, int jk)
+{
+    pole(A, B, 0, jk);
+    int max1, i, min, med, med2, raz = 0, C[jk];
+    if (jk == 4) {
+        for (i = 0; i < jk; i++)
+            C[i] = B[i];
+        BubbleSort(C, jk);
+        min = C[0];
+        med = C[1];
+        med2 = C[2];
+        max1 = C[3];
+        raz = max1 + med - min - med2;
+        if (raz == 0)
+            raz = max1;
+        if (B[0] == max1) {
+            B[0] -= raz;
+            return;
+        }
+        if (B[1] == max1) {
+            B[1] -= raz;
+            return;
+        }
+        if (B[2] == max1) {
+            B[2] -= raz;
+            return;
+        }
+        if (B[3] == max1) {
+            B[3] -= raz;
+            return;
+        }
+        return;
+    }
+
+    return;
+}
+
 void games(int** A, int* B, int jk)
 {
     clear();
-    int win = 2;
     while (1) {
-        break;
+        ComputerTurn(A, B, jk);
+        clear();
     }
     return;
 }

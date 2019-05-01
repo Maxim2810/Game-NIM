@@ -42,7 +42,7 @@ void difficulty()
             clear();
             return;
         case '2':
-            standart(3);
+            standart(4);
             clear();
             return;
         case '3':
