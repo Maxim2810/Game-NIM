@@ -1,4 +1,5 @@
 #include "../library/lib.h"
+#include "menu.h"
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
         i = getch();
         switch (i) {
         case 49:
+            difficulty();
             break;
         case 50:
             break;
