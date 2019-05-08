@@ -1,10 +1,11 @@
 #include "../library/lib.h"
 #include "game.h"
 
-void pole(int** A, int* B, int flag, int jk)
+void pole(int** A, int* B, int flag, int jk, int s)
 {
     int j;
     clear();
+    printw("Hodov: %d\n",s);
     printw("1: ");
     for (j = 0; j < B[0]; j++)
         printw(" %d|", A[0][j]);
