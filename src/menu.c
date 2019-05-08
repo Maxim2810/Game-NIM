@@ -1,13 +1,30 @@
 #include "../library/lib.h"
 #include "game.h"
 
+void recordsmenu(){
+	clear();
+	struct S A;
+	int i=1;
+	FILE *f;
+	f=fopen("records.dat","rb");
+    fread(&A,sizeof(A),1,f);
+	while (!feof(f)){
+   		printw("%d Name: %s   Move: %d\n\n",i,A.names,A.lim);
+   		fread(&A,sizeof(A),1,f);
+   		i++;
+   } 
+  	getch();
+  	clear()	;
+	return;
+}
+
 void record(int s){
 	struct S A;
 	clear();
-	printw("Enter your name\n\n");
-	char nm[20];
+	char nm[50];
 	FILE *f;
 	f=fopen("records.dat","ab");
+    printw("Enter name\n\n");
 	scanw("%s",nm);
 	strcpy(A.names,nm);
 	A.lim=s;
