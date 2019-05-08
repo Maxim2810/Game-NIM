@@ -118,6 +118,13 @@ void ComputerTurn(int** A, int* B, int jk, int s)
         return;
     }
     if (jk == 4) {
+    if(s==0){
+    int n,m;
+    n=rand()%jk;
+    m=rand()%(B[n]/2+1)+1;
+    B[n]-=m;
+    return;
+}
         for (i = 0; i < jk; i++)
             C[i] = B[i];
         BubbleSort(C, jk);
