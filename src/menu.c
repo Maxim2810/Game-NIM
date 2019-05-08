@@ -1,6 +1,21 @@
 #include "../library/lib.h"
 #include "game.h"
 
+void record(int s){
+	struct S A;
+	clear();
+	printw("Enter your name\n\n");
+	char nm[20];
+	FILE *f;
+	f=fopen("records.dat","ab");
+	scanw("%s",nm);
+	strcpy(A.names,nm);
+	A.lim=s;
+	fwrite(&A,sizeof(A),1,f);
+	fclose(f);
+	return;
+}
+
 void pole(int** A, int* B, int flag, int jk, int s)
 {
     int j;

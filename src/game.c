@@ -166,6 +166,8 @@ void games(int** A, int* B, int jk)
         if (win == 1)
             break;
     }
+    if(win)
+	record(s);
     return;
 }
 
