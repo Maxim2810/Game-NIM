@@ -87,7 +87,7 @@ void PlayerTurn(int** A, int* B, int jk, int s)
     return;
 }
 
-void ComputerTurn(int** A, int* B, int jk. int s)
+void ComputerTurn(int** A, int* B, int jk, int s)
 {
     pole(A, B, 0, jk, s);
     int max1, i, min, med, med2, raz = 0, C[jk];

@@ -1,3 +1,7 @@
+struct S{
+	int lim;
+	char names[20];
+};
 #include "curses.h"
 #include <math.h>
 #include <stdio.h>
