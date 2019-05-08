@@ -6,7 +6,7 @@ void recordsmenu(){
 	struct S A;
 	int i=1;
 	FILE *f;
-	f=fopen("records.dat","rb");
+	f=fopen("bin/records.dat","rb");
     fread(&A,sizeof(A),1,f);
 	while (!feof(f)){
    		printw("%d Name: %s   Move: %d\n\n",i,A.names,A.lim);
@@ -23,7 +23,7 @@ void record(int s){
 	clear();
 	char nm[50];
 	FILE *f;
-	f=fopen("records.dat","ab");
+	f=fopen("bin/records.dat","ab");
     printw("Enter name\n\n");
 	scanw("%s",nm);
 	strcpy(A.names,nm);
