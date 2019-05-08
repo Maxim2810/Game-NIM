@@ -3,8 +3,11 @@
 
 int main()
 {
+    FILE *f;
     char i;
     srand(time(NULL));
+    f=fopen("bin/records.dat","ab");
+    fclose(f);
     while (1) {
         initscr();
         printw("1-play\n2-records\n3-manual\n4-exit\n");

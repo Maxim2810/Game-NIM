@@ -5,6 +5,7 @@ void recordsmenu(){
 	clear();
 	struct S A;
 	int i=1;
+    char a;
 	FILE *f;
 	f=fopen("bin/records.dat","rb");
     fread(&A,sizeof(A),1,f);
@@ -12,10 +13,13 @@ void recordsmenu(){
    		printw("%d Name: %s   Move: %d\n\n",i,A.names,A.lim);
    		fread(&A,sizeof(A),1,f);
    		i++;
-   } 
-  	getch();
-  	clear()	;
-	return;
+    } 
+    printw("\n\nC - for clear records");
+  	a=getch();
+    switch(a){
+    case 99: clear(); fclose(f); f=fopen("bin/records.dat","wb"); fclose(f); return;
+    default: clear(); fclose(f); return;
+}
 }
 
 void record(int s){
