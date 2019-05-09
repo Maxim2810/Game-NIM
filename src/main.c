@@ -3,10 +3,10 @@
 
 int main()
 {
-    FILE *f;
+    FILE* f;
     char i;
     srand(time(NULL));
-    f=fopen("bin/records.dat","ab");
+    f = fopen("bin/records.dat", "ab");
     fclose(f);
     while (1) {
         initscr();
