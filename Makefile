@@ -18,5 +18,4 @@ repository:
 clean:
 	rm -rf bin/game
 	rm -rf build/*.o
-	rm -R bin
 	rm -R build

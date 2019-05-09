@@ -3,25 +3,24 @@
 
 int main()
 {
+    FILE *f;
     char i;
     srand(time(NULL));
+    f=fopen("bin/records.dat","ab");
+    fclose(f);
     while (1) {
         initscr();
         printw("1-play\n2-records\n3-manual\n4-exit\n");
-        refresh();
         i = getch();
         switch (i) {
         case 49:
             difficulty();
             break;
         case 50:
+            recordsmenu();
             break;
         case 51:
-            clear();
-            printw("Nim - eto igra\nUpravlenie:\nn - "
-                   "stroka\nm - kolvo kamushek\n");
-            refresh();
-            getch();
+            manual();
             clear();
             break;
         case 52:

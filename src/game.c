@@ -17,11 +17,11 @@ void BubbleSort(int* A, int n)
     return;
 }
 
-void PlayerTurn(int** A, int* B, int jk)
+void PlayerTurn(int** A, int* B, int jk, int s)
 {
     int m, n;
     while (1) {
-        pole(A, B, 1, jk);
+        pole(A, B, 1, jk, s);
         if (jk == 3)
             printw("Viberite kychky 1 or 2 or 3:\n");
         else
@@ -87,9 +87,9 @@ void PlayerTurn(int** A, int* B, int jk)
     return;
 }
 
-void ComputerTurn(int** A, int* B, int jk)
+void ComputerTurn(int** A, int* B, int jk, int s)
 {
-    pole(A, B, 0, jk);
+    pole(A, B, 0, jk, s);
     int max1, i, min, med, med2, raz = 0, C[jk];
     if (jk == 3) {
         for (i = 0; i < jk; i++)
@@ -118,6 +118,13 @@ void ComputerTurn(int** A, int* B, int jk)
         return;
     }
     if (jk == 4) {
+    if(s==0){
+    int n,m;
+    n=rand()%jk;
+    m=rand()%(B[n]/2+1)+1;
+    B[n]-=m;
+    return;
+}
         for (i = 0; i < jk; i++)
             C[i] = B[i];
         BubbleSort(C, jk);
@@ -153,18 +160,21 @@ void ComputerTurn(int** A, int* B, int jk)
 void games(int** A, int* B, int jk)
 {
     clear();
-    int win = 2;
+    int win = 2,s=0;
     while (1) {
-        ComputerTurn(A, B, jk);
+        ComputerTurn(A, B, jk, s);
         win = winner(B, 0, jk);
         if (win == 0)
             break;
         clear();
-        PlayerTurn(A, B, jk);
+        PlayerTurn(A, B, jk, s);
         win = winner(B, 1, jk);
+        s++;
         if (win == 1)
             break;
     }
+    if(win)
+	record(s);
     return;
 }
 
