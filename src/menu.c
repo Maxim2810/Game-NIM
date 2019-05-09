@@ -1,6 +1,18 @@
 #include "../library/lib.h"
 #include "game.h"
 
+void manual(){
+    clear();
+    FILE *f;
+    char st[250];
+	f=fopen("bin/manual.txt","r");
+    while (fgets(st,250,f)){
+   		printw("%s",st);
+    } 
+    getch();
+    return;
+}
+
 void recordsmenu(){
 	clear();
 	struct S A;

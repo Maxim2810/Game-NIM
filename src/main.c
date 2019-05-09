@@ -20,10 +20,7 @@ int main()
             recordsmenu();
             break;
         case 51:
-            clear();
-            printw("Nim - eto igra\nUpravlenie:\nn - "
-                   "stroka\nm - kolvo kamushek\n");
-            getch();
+            manual();
             clear();
             break;
         case 52:
