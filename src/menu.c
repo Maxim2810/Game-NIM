@@ -1,59 +1,70 @@
 #include "../library/lib.h"
 #include "game.h"
 
-void manual(){
+void manual()
+{
     clear();
-    FILE *f;
+    FILE* f;
     char st[250];
-	f=fopen("bin/manual.txt","r");
-    while (fgets(st,250,f)){
-   		printw("%s",st);
-    } 
+    f = fopen("bin/manual.txt", "r");
+    while (fgets(st, 250, f)) {
+        printw("%s", st);
+    }
     getch();
     return;
 }
 
-void recordsmenu(){
-	clear();
-	struct S A;
-	int i=1;
+void recordsmenu()
+{
+    clear();
+    struct S A;
+    int i = 1;
     char a;
-	FILE *f;
-	f=fopen("bin/records.dat","rb");
-    fread(&A,sizeof(A),1,f);
-	while (!feof(f)){
-   		printw("%d Name: %s   Move: %d\n\n",i,A.names,A.lim);
-   		fread(&A,sizeof(A),1,f);
-   		i++;
-    } 
+    FILE* f;
+    f = fopen("bin/records.dat", "rb");
+    fread(&A, sizeof(A), 1, f);
+    while (!feof(f)) {
+        printw("%d Name: %s   Move: %d\n\n", i, A.names, A.lim);
+        fread(&A, sizeof(A), 1, f);
+        i++;
+    }
     printw("\n\nC - for clear records");
-  	a=getch();
-    switch(a){
-    case 99: clear(); fclose(f); f=fopen("bin/records.dat","wb"); fclose(f); return;
-    default: clear(); fclose(f); return;
-}
+    a = getch();
+    switch (a) {
+    case 99:
+        clear();
+        fclose(f);
+        f = fopen("bin/records.dat", "wb");
+        fclose(f);
+        return;
+    default:
+        clear();
+        fclose(f);
+        return;
+    }
 }
 
-void record(int s){
-	struct S A;
-	clear();
-	char nm[50];
-	FILE *f;
-	f=fopen("bin/records.dat","ab");
+void record(int s)
+{
+    struct S A;
+    clear();
+    char nm[50];
+    FILE* f;
+    f = fopen("bin/records.dat", "ab");
     printw("Enter name\n\n");
-	scanw("%s",nm);
-	strcpy(A.names,nm);
-	A.lim=s;
-	fwrite(&A,sizeof(A),1,f);
-	fclose(f);
-	return;
+    scanw("%s", nm);
+    strcpy(A.names, nm);
+    A.lim = s;
+    fwrite(&A, sizeof(A), 1, f);
+    fclose(f);
+    return;
 }
 
 void pole(int** A, int* B, int flag, int jk, int s)
 {
     int j;
     clear();
-    printw("Hodov: %d\n",s);
+    printw("Hodov: %d\n", s);
     printw("1: ");
     for (j = 0; j < B[0]; j++)
         printw(" %d|", A[0][j]);

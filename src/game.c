@@ -118,13 +118,13 @@ void ComputerTurn(int** A, int* B, int jk, int s)
         return;
     }
     if (jk == 4) {
-    if(s==0){
-    int n,m;
-    n=rand()%jk;
-    m=rand()%(B[n]/2+1)+1;
-    B[n]-=m;
-    return;
-}
+        if (s == 0) {
+            int n, m;
+            n = rand() % jk;
+            m = rand() % (B[n] / 2 + 1) + 1;
+            B[n] -= m;
+            return;
+        }
         for (i = 0; i < jk; i++)
             C[i] = B[i];
         BubbleSort(C, jk);
@@ -160,7 +160,7 @@ void ComputerTurn(int** A, int* B, int jk, int s)
 void games(int** A, int* B, int jk)
 {
     clear();
-    int win = 2,s=0;
+    int win = 2, s = 0;
     while (1) {
         ComputerTurn(A, B, jk, s);
         win = winner(B, 0, jk);
@@ -173,8 +173,8 @@ void games(int** A, int* B, int jk)
         if (win == 1)
             break;
     }
-    if(win)
-	record(s);
+    if (win)
+        record(s);
     return;
 }
 
