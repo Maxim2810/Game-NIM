@@ -17,79 +17,14 @@ void BubbleSort(int* A, int n)
     return;
 }
 
-void PlayerTurn(int** A, int* B, int jk, int s)
+int PlayerTurn(int* B, int jk, int s)
 {
-    int m, n;
-    while (1) {
-        pole(A, B, 1, jk, s);
-        if (jk == 3)
-            printw("Viberite kychky 1 or 2 or 3:\n");
-        else
-            printw("Viberite kychky 1 or 2 or 3 or 4:\n");
-        scanw("%d", &m);
-        if (m > jk - 1 && m < 0)
-            continue;
-        printw("Viberite spichki 1-10:\n");
-        scanw("%d", &n);
-        if (n > 2000000000)
-            continue;
-        if (n < 1)
-            continue;
-        if (m == 1) {
-            if (B[0] == 0)
-                continue;
-            if (B[0] >= n) {
-                B[0] -= n;
-                return;
-            }
-            if (B[0] < n) {
-                B[0] = 0;
-                return;
-            }
-        }
-        if (m == 2) {
-            if (B[1] == 0)
-                continue;
-            if (B[1] >= n) {
-                B[1] -= n;
-                return;
-            }
-            if (B[1] < n) {
-                B[1] = 0;
-                return;
-            }
-        }
-        if (m == 3) {
-            if (B[2] == 0)
-                continue;
-            if (B[2] >= n) {
-                B[2] -= n;
-                return;
-            }
-            if (B[2] < n) {
-                B[2] = 0;
-                return;
-            }
-        }
-        if (m == 4) {
-            if (B[3] == 0)
-                continue;
-            if (B[3] >= n) {
-                B[3] -= n;
-                return;
-            }
-            if (B[3] < n) {
-                B[3] = 0;
-                return;
-            }
-        }
-    }
-    return;
+    return pole(B, 1, jk, s);
 }
 
-void ComputerTurn(int** A, int* B, int jk, int s)
+void ComputerTurn(int* B, int jk, int s)
 {
-    pole(A, B, 0, jk, s);
+    pole(B, 0, jk, s);
     int max1, i, min, med, med2, raz = 0, C[jk];
     if (jk == 3) {
         for (i = 0; i < jk; i++)
@@ -157,17 +92,16 @@ void ComputerTurn(int** A, int* B, int jk, int s)
     return;
 }
 
-void games(int** A, int* B, int jk)
+void games(int* B, int jk)
 {
-    clear();
     int win = 2, s = 0;
     while (1) {
-        ComputerTurn(A, B, jk, s);
+        ComputerTurn(B, jk, s);
         win = winner(B, 0, jk);
         if (win == 0)
             break;
-        clear();
-        PlayerTurn(A, B, jk, s);
+        if (PlayerTurn(B, jk, s))
+            return;
         win = winner(B, 1, jk);
         s++;
         if (win == 1)
@@ -175,18 +109,14 @@ void games(int** A, int* B, int jk)
     }
     if (win)
         record(s);
+    if (win == 0)
+        lose();
     return;
 }
 
 void standart(int jk)
 {
-    int i, j, **A, *B;
-    A = (int**)malloc(jk * sizeof(int*));
-    for (i = 0; i < jk; i++) {
-        A[i] = (int*)malloc(10 * sizeof(int));
-        for (j = 0; j < 10; j++)
-            A[i][j] = j + 1;
-    }
+    int* B;
     B = (int*)malloc(jk * sizeof(int));
     if (jk == 3) {
         B[0] = rand() % 3 + 1;
@@ -198,10 +128,7 @@ void standart(int jk)
         B[2] = 5;
         B[3] = 7;
     }
-    games(A, B, jk);
-    for (i = 0; i < jk; i++)
-        free(A[i]);
-    free(A);
+    games(B, jk);
     free(B);
     return;
 }
