@@ -1,4 +1,4 @@
 bin/game
-build/*.o
+build/
 *.swp
 src/*.swp
