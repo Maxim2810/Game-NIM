@@ -18,7 +18,7 @@ int main()
     backSP.setPosition(0, 0);
 
     Image icon;
-    if (!icon.loadFromFile("../src/images/icon.png")){
+    if (!icon.loadFromFile("../src/images/icon.png")) {
         return 1;
     }
 
@@ -48,7 +48,7 @@ int main()
     t1.setFillColor(Color::White);
     t2.setFillColor(Color::White);
     t3.setFillColor(Color::White);
-    t4.setFillColor(Color::White);    
+    t4.setFillColor(Color::White);
 
     text.setPosition(250, 180);
     t1.setPosition(250, 20);
@@ -63,38 +63,37 @@ int main()
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed
                 && event.mouseButton.button == sf::Mouse::Left) {
-		
-    		t1.setFillColor(Color::White);
-   	 	t2.setFillColor(Color::White);
-    		t3.setFillColor(Color::White);
-    		t4.setFillColor(Color::White); 
+                t1.setFillColor(Color::White);
+                t2.setFillColor(Color::White);
+                t3.setFillColor(Color::White);
+                t4.setFillColor(Color::White);
 
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 255 && x < 463 && y > 198 && y < 242) {
                     t1.setFillColor(Color::Green);
-		    difficulty();
+                    difficulty();
                     break;
                 }
                 if (x > 252 && x < 487 && y > 277 && y < 330) {
                     t2.setFillColor(Color::Green);
-		    recordsmenu();
+                    recordsmenu();
                     break;
                 }
                 if (x > 254 && x < 474 && y > 353 && y < 410) {
                     t3.setFillColor(Color::Green);
-		    manual();
+                    manual();
                     break;
                 }
                 if (x > 249 && x < 424 && y > 437 && y < 484) {
                     t4.setFillColor(Color::Green);
-		    window.close();
+                    window.close();
                 }
             }
         }
-	
-	window.setIcon(62, 55, icon.getPixelsPtr());
+
+        window.setIcon(62, 55, icon.getPixelsPtr());
         window.clear();
         window.draw(backSP);
         window.draw(text);
