@@ -18,7 +18,7 @@ int main()
     backSP.setPosition(0, 0);
 
     Image icon;
-    if(!icon.loadFromFile("../src/images/icon.png")){
+    if (!icon.loadFromFile("../src/images/icon.png")){
         return 1;
     }
 
