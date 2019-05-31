@@ -44,12 +44,6 @@ int main()
     t3.setCharacterSize(60);
     t4.setCharacterSize(60);
 
-    text.setFillColor(Color::White);
-    t1.setFillColor(Color::White);
-    t2.setFillColor(Color::White);
-    t3.setFillColor(Color::White);
-    t4.setFillColor(Color::White);
-
     text.setPosition(250, 180);
     t1.setPosition(250, 20);
     t2.setPosition(250, 260);
@@ -63,31 +57,22 @@ int main()
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed
                 && event.mouseButton.button == sf::Mouse::Left) {
-                t1.setFillColor(Color::White);
-                t2.setFillColor(Color::White);
-                t3.setFillColor(Color::White);
-                t4.setFillColor(Color::White);
-
                 mousexy = sf::Mouse::getPosition(window);
                 x = mousexy.x;
                 y = mousexy.y;
                 if (x > 255 && x < 463 && y > 198 && y < 242) {
-                    t1.setFillColor(Color::Green);
                     difficulty();
                     break;
                 }
                 if (x > 252 && x < 487 && y > 277 && y < 330) {
-                    t2.setFillColor(Color::Green);
                     recordsmenu();
                     break;
                 }
                 if (x > 254 && x < 474 && y > 353 && y < 410) {
-                    t3.setFillColor(Color::Green);
                     manual();
                     break;
                 }
                 if (x > 249 && x < 424 && y > 437 && y < 484) {
-                    t4.setFillColor(Color::Green);
                     window.close();
                 }
             }
