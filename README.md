@@ -17,7 +17,7 @@ cd bin/
 
 ```
 $ git clone https://github.com/Maxim2810/Game-NIM.git
-$ cd Game-Pyatnashki/
+$ cd Game-NIM/
 $ make test
 ```
 ### *Запуск*
